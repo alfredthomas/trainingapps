@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MadLib</string>
+    <string name="title_item_detail">Item Detail</string>
+	<string name="number_prompt">Choose a number</string>
+    <string-array name="number_arrays">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>35</item>
+        <item>60</item>
+        <item>100</item>
+        <item>1000</item>
+    </string-array>
+    <string name="timeunit_prompt">Choose a time unit</string>
+    <string-array name="timeunit_arrays">
+        <item>milliseconds</item>
+        <item>seconds</item>
+        <item>hours</item>
+        <item>minutes</item>
+        <item>days</item>
+        <item>years</item>
+        <item>decades</item>
+        <item>centuries</item>
+    </string-array>
+    <string name="product_prompt">Choose a product</string>
+    <string-array name="product_arrays">
+        <item>Asp.Net</item>
+        <item>Ignite UI</item>
+        <item>Windows Forms</item>
+        <item>Windows UI</item>
+        <item>XAML LOB and DV</item>
+        <item>NucliOS</item>
+        <item>Share+</item>
+        <item>Report+</item>
+     </string-array>   
+</resources>
