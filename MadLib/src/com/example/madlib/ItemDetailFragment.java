@@ -2,16 +2,11 @@ package com.example.madlib;
 
 import java.util.ArrayList;
 
-import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView.FindListener;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Spinner;
@@ -62,7 +57,7 @@ public class ItemDetailFragment extends Fragment {
         RelativeLayout view = (RelativeLayout)inflater.inflate(R.layout.fragment_item_detail, container, false);
         
         int[] counts= {6000,0,0};
-        String lastComponent="";
+        //String lastComponent="";
         for(UIElement e:items)
         {
         	RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
@@ -81,7 +76,7 @@ public class ItemDetailFragment extends Fragment {
         		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),R.array.product_arrays) ;
         		adapter.setDropDownViewResource(R.layout.simple_spinner);
         		spinner.setAdapter(adapter);
-        		lastComponent = e.getComponent();
+        		//lastComponent = e.getComponent();
         		counts[0]++;
         		view.addView(spinner);
         		

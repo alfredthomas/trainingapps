@@ -4,9 +4,32 @@
     android:layout_height="match_parent"
     tools:context="${packageName}.${activityClass}" >
 
-    <TextView
+    <ImageView
+        android:id="@+id/fill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:contentDescription="@string/fill_desc"
+        android:src="@drawable/redorangefill" />
+
+    <ImageView
+        android:id="@+id/inner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/inner_desc"
+        android:src="@drawable/redorangeinner" />
+
+    <ImageView
+        android:id="@+id/middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/middle_desc"
+        android:src="@drawable/redorangemiddle" />
+
+    <ImageView
+        android:id="@+id/outer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/outer_desc"
+        android:src="@drawable/redorangeouter" />
 
 </RelativeLayout>

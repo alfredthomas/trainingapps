@@ -9,11 +9,9 @@ import javax.xml.parsers.DocumentBuilder;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-import org.w3c.dom.Element;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.os.storage.StorageManager;
 
 /**
  * Helper class for providing utilities involving XML

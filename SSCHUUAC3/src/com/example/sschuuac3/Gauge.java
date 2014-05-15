@@ -1,8 +1,6 @@
 package com.example.sschuuac3;
 
 import android.content.Context;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.AbsListView;
 import android.widget.RelativeLayout;
 
 import com.infragistics.controls.gauges.*;

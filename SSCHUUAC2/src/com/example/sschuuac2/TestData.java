@@ -2,6 +2,7 @@ package com.example.sschuuac2;
 
 import java.util.ArrayList;
 
+@SuppressWarnings("serial")
 public class TestData extends ArrayList<TestDataItem> {
 	
 	public TestData() {

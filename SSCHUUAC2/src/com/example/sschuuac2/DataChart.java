@@ -9,7 +9,6 @@ import com.infragistics.controls.charts.LineSeries;
 import com.infragistics.controls.charts.MarkerType;
 import com.infragistics.controls.charts.NumericYAxis;
 import com.infragistics.graphics.SolidColorBrush;
-import com.infragistics.system.uicore.media.Brush;
 
 public class DataChart {
 

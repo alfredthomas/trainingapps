@@ -3,11 +3,8 @@ package com.example.sschuuac3;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.ViewGroup;
-import android.widget.GridView;
 import android.widget.HorizontalScrollView;
 import android.widget.RelativeLayout;
-import android.widget.AbsListView.LayoutParams;
-import android.widget.ScrollView;
 
 public class MainActivity extends Activity {
     @Override

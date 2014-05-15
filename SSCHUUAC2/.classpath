@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="libs/infragistics.dvshared.jar"/>
 	<classpathentry kind="lib" path="libs/infragistics.gauges.jar"/>
 	<classpathentry kind="lib" path="libs/infragistics.ui.jar"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

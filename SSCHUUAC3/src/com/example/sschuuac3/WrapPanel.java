@@ -33,7 +33,7 @@ public class WrapPanel extends ViewGroup{
 		int containerWidth = MeasureSpec.getSize(widthMeasureSpec);
 		int containerWidthMode = MeasureSpec.getMode(widthMeasureSpec);
 		int containerHeight = MeasureSpec.getSize(heightMeasureSpec);
-		int containerHeightMode = MeasureSpec.getMode(heightMeasureSpec);
+		//int containerHeightMode = MeasureSpec.getMode(heightMeasureSpec);
 		int totMaxHeight = 0;
 		int totMaxWidth = 0;
 		if (!(containerWidthMode == MeasureSpec.UNSPECIFIED)){
