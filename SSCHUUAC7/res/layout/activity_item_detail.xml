@@ -3,6 +3,7 @@
     android:id="@+id/item_detail_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FF1111"
     tools:context="com.example.sschuuac7.ItemDetailActivity"
     tools:ignore="MergeRootFrame" />
 

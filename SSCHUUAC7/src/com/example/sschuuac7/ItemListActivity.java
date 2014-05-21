@@ -1,8 +1,14 @@
 package com.example.sschuuac7;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.widget.DrawerLayout;
+import android.view.MenuItem;
+import android.view.View;
 
 /**
  * An activity representing a list of Items. This activity has different
@@ -27,12 +33,63 @@ public class ItemListActivity extends FragmentActivity implements
 	 * device.
 	 */
 	private boolean mTwoPane;
-
+	private int orientation;
+	private DrawerLayout dl;
+	private ActionBarDrawerToggle mDrawerToggle;
+	private CharSequence mTitle;
+	private CharSequence mDrawerTitle;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		if (savedInstanceState== null){
+			ItemDetailFragment empty = new ItemDetailFragment();
+			empty.setArguments(new Bundle());
+			getSupportFragmentManager().beginTransaction()
+			.replace(R.id.item_detail_container, empty).commit();
+		}
 		setContentView(R.layout.activity_item_list);
+		orientation = getResources().getConfiguration().orientation;
+		
+		if(orientation == Configuration.ORIENTATION_PORTRAIT){
+			dl = (DrawerLayout) this.findViewById(R.id.drawer_layout);
+			if(!(dl==null)){
+				dl.getChildAt(1).setBackgroundColor(Color.RED);
+				dl.getChildAt(1).setAlpha(1);
+				
+			}
+			
+			getActionBar().setDisplayShowHomeEnabled(false);
+			
+			mTitle = mDrawerTitle = getTitle();
+	        mDrawerToggle = new ActionBarDrawerToggle(
+	                this,                  /* host Activity */
+	                dl,         			/* DrawerLayout object */
+	                R.drawable.ic_launcher,  /* nav drawer icon to replace 'Up' caret */
+	                R.string.drawer_open,  /* "open drawer" description */
+	                R.string.drawer_close  /* "close drawer" description */
+	                ) {
 
+	            /** Called when a drawer has settled in a completely closed state. */
+	            public void onDrawerClosed(View view) {
+	                super.onDrawerClosed(view);
+	                getActionBar().setTitle(mTitle);
+	            }
+
+	            /** Called when a drawer has settled in a completely open state. */
+	            public void onDrawerOpened(View drawerView) {
+	                super.onDrawerOpened(drawerView);
+	                getActionBar().setTitle(mDrawerTitle);
+	            }
+	        };
+
+	        // Set the drawer toggle as the DrawerListener
+	        dl.setDrawerListener(mDrawerToggle);
+
+	        getActionBar().setDisplayHomeAsUpEnabled(true);
+	        getActionBar().setHomeButtonEnabled(true);
+	    
+		}
 		if (findViewById(R.id.item_detail_container) != null) {
 			// The detail container view will be present only in the
 			// large-screen layouts (res/values-large and
@@ -65,7 +122,11 @@ public class ItemListActivity extends FragmentActivity implements
 			fragment.setArguments(arguments);
 			getSupportFragmentManager().beginTransaction()
 					.replace(R.id.item_detail_container, fragment).commit();
-
+			
+			if(orientation == Configuration.ORIENTATION_PORTRAIT){
+				//DrawerLayout dl = (DrawerLayout) this.findViewById(R.id.drawer_layout);
+				dl.closeDrawers();
+			}
 		} else {
 			// In single-pane mode, simply start the detail activity
 			// for the selected item ID.
@@ -74,4 +135,30 @@ public class ItemListActivity extends FragmentActivity implements
 			startActivity(detailIntent);
 		}
 	}
+	 @Override
+	    protected void onPostCreate(Bundle savedInstanceState) {
+	        super.onPostCreate(savedInstanceState);
+	        // Sync the toggle state after onRestoreInstanceState has occurred.
+	        if(orientation == Configuration.ORIENTATION_PORTRAIT)
+	        	mDrawerToggle.syncState();
+	    }
+	 @Override
+	    public void onConfigurationChanged(Configuration newConfig) {
+	        super.onConfigurationChanged(newConfig);
+	        if(orientation == Configuration.ORIENTATION_PORTRAIT)
+		        mDrawerToggle.onConfigurationChanged(newConfig);
+	    }
+
+	    @Override
+	    public boolean onOptionsItemSelected(MenuItem item) {
+	        // Pass the event to ActionBarDrawerToggle, if it returns
+	        // true, then it has handled the app icon touch event
+	    	if(orientation == Configuration.ORIENTATION_PORTRAIT)
+		       	if (mDrawerToggle.onOptionsItemSelected(item)) {
+		       		return true;
+		       	}
+	      
+
+	        return super.onOptionsItemSelected(item);
+	    }
 }

@@ -1,11 +1,24 @@
 package com.example.madlib;
 
 
+import java.util.ArrayList;
+
+import com.example.madlib.xml.UIElement;
+import com.example.madlib.xml.Utils;
+
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 
 /**
@@ -19,11 +32,11 @@ import android.view.MenuItem;
  */
 public class ItemDetailActivity extends FragmentActivity {
 
+	public static final String ARG_ITEM_ID = "item_id";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_detail);
-
         // Show the Up button in the action bar.
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -47,10 +60,11 @@ public class ItemDetailActivity extends FragmentActivity {
             ItemDetailFragment fragment = new ItemDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.item_detail_container, fragment)
-                    .commit();
+                    .add(R.id.scroll, fragment)
+                    .commit(); 
         	
         }
+        
     }
 
     @Override

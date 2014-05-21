@@ -2,9 +2,11 @@ package com.example.madlib;
 
 import java.util.ArrayList;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
@@ -31,14 +33,15 @@ public class ItemDetailFragment extends Fragment {
      * The content this fragment is presenting.
      */
     private ArrayList<UIElement> items;
+    private Context context;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public ItemDetailFragment() {
+    public ItemDetailFragment(){
+    	
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,64 +55,49 @@ public class ItemDetailFragment extends Fragment {
     }
 
     @Override
-    public ViewGroup onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        RelativeLayout view = (RelativeLayout)inflater.inflate(R.layout.fragment_item_detail, container, false);
-        
-        int[] counts= {6000,0,0};
-        //String lastComponent="";
+    	context = container.getContext();
+    	WrapPanel wrap = new WrapPanel(context);
+    	int height = 0;
+        RelativeLayout.LayoutParams lp = (android.widget.RelativeLayout.LayoutParams) new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         for(UIElement e:items)
         {
-        	RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         	
         	if (e.getComponent().equals("input")){
-        		//use spinner and follow previous item
-        		Spinner spinner = new Spinner(getActivity());
-        		spinner.findViewById(R.layout.spinner);
-        		spinner.setId(counts[0]);
-        		//if(lastComponent.equals("title"))
-        			//lp.addRule(RelativeLayout.BELOW,counts[0]-1);
-        		lp.addRule(RelativeLayout.BELOW,counts[0]-1);
+        		Spinner spinner = new Spinner(context);
         		spinner.setLayoutParams(lp);
-        		
-        		spinner.setContentDescription(e.getContent());
-        		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),R.array.product_arrays) ;
-        		adapter.setDropDownViewResource(R.layout.simple_spinner);
+        		int id = getResources().getIdentifier(e.getContent()+"_arrays", "array", context.getPackageName());
+        		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,id,android.R.layout.simple_spinner_item) ;
         		spinner.setAdapter(adapter);
-        		//lastComponent = e.getComponent();
-        		counts[0]++;
-        		view.addView(spinner);
+        		wrap.addView(spinner);
+//        		height = spinner.getHeight();
         		
         	}
         	else if(e.getComponent().equals("title")){
-        		//alight textarea to center
+        		
         		TextView txt = new TextView (getActivity());
         		txt.setText(e.getContent());
-        		lp.addRule(RelativeLayout.BELOW,counts[0]-1);     		
-	            txt.setLayoutParams(lp);
-	            txt.setId(counts[0]);
-	            txt.setWidth(300);        		
-        		counts[0]++;
-        		view.addView(txt);
+	           
+        		txt.setLayoutParams(lp);
+	            
+	            
+	            //skip adding for now
+	            //wrap.addView(txt);
         	}
         	else{
-        		//static content should follow previous item
-	            //((TextView) view.findViewById(R.id.item_detail)).setText(content);
-	            TextView txt = new TextView(getActivity());
-	            txt.setText(e.getContent());
-	            //if(lastComponent.equals("title"))
-        		//	lp.addRule(RelativeLayout.BELOW,counts[0]-1);
-	        	
-	            lp.addRule(RelativeLayout.BELOW,counts[0]-1);
-        		
-	            txt.setLayoutParams(lp);
-	            txt.setId(counts[0]);
-	            txt.setWidth(300);
-	            counts[0]++;
-	            view.addView(txt);
+        		for(String word:e.getContent().split(" ")){
+        		TextView txt = new TextView(context);
+        		txt.setText(word+" ");
+	            //lp.height = height;
+	            lp.addRule(RelativeLayout.CENTER_VERTICAL);
+	            
+	            wrap.addView(txt);
+        		}
         	}
-        }   
-        return view;
+        }
+        //container.addView(wrap);
+        return wrap;
         
     }
 }

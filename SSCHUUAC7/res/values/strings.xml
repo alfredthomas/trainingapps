@@ -3,5 +3,6 @@
 
     <string name="app_name">SSCHUUAC7</string>
     <string name="title_item_detail">Item Detail</string>
-
+    <string name="drawer_open">open drawer</string>
+    <string name="drawer_close">close drawer</string>
 </resources>

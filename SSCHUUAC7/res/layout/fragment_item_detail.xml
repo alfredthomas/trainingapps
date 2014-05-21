@@ -6,5 +6,8 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:textIsSelectable="true"
+    android:background="#FF11FF11"
+    android:textColor="#ff0000ff"
+    android:text="choose a value"
     tools:context="com.example.sschuuac7.ItemDetailFragment" />
 
