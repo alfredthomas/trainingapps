@@ -3,6 +3,7 @@
 
     <string name="app_name">MadLib</string>
     <string name="title_item_detail">Item Detail</string>
+    <string name="description">Simple Choose your own words madlib</string>
 	<string name="number_prompt">Choose a number</string>
     <string-array name="number_arrays">
         <item>1</item>

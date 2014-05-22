@@ -4,5 +4,5 @@
     <string name="app_name">SSCHUUAC4</string>
     <string name="hello_world">Hello world!</string>
     <string name="fill_desc">fill image</string><string name="inner_desc">inner image</string><string name="middle_desc">middle image</string><string name="outer_desc">outer image</string>
-
+	<string name="description">applying a rotation animation two three different images</string>
 </resources>

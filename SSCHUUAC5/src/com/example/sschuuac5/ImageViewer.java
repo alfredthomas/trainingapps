@@ -6,7 +6,6 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
-import android.util.FloatMath;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
@@ -34,8 +33,9 @@ public class ImageViewer extends ImageView {
 	PointF mid = new PointF();
 	float oldDist = 1f;
 	String savedItemClicked;
-	
+	Paint paint;
 	ScaleGestureDetector gestDet;
+	
 	
 	public ImageViewer(Context context) {
 		super(context);
@@ -43,7 +43,7 @@ public class ImageViewer extends ImageView {
 		scale = 1.0f;
 		posX = 0;
 		posY = 0;
-		
+		paint = new Paint();
 	}
 	/* (non-Javadoc)
 	 * @see android.widget.ImageView#setScaleType(android.widget.ImageView.ScaleType)
@@ -62,19 +62,19 @@ public class ImageViewer extends ImageView {
 	@Override
 	public void draw(Canvas canvas) {
 	    super.draw(canvas);
-	    canvas.drawRect(0, 0, getWidth() - 1, getHeight() - 1, new Paint());
+	    canvas.drawRect(0, 0, getWidth() - 1, getHeight() - 1, paint);
 	    
 	}
 	
 	@Override
 	protected void onDraw(Canvas canvas) {
 		// TODO Auto-generated method stub
-		  canvas.drawRect(0, 0, getWidth() - 1, getHeight() - 1, new Paint());
+		  canvas.drawRect(0, 0, getWidth() - 1, getHeight() - 1, paint);
 		    if (this.getDrawable() != null) {
 		        canvas.save();
 		        canvas.translate(posX, posY);
 
-		        Matrix matrix = new Matrix();
+		        
 		        matrix.postScale(scale, scale, pivotPointX,
 		                pivotPointY);
 		        // canvas.setMatrix(matrix);

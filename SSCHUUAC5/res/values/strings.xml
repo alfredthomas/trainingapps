@@ -4,5 +4,5 @@
     <string name="app_name">SSCHUUAC5</string>
     <string name="hello_world">Hello world!</string>
     <string name="todo">TODO</string>
-
+	<string name="description">image viewer with pan and zoom</string>
 </resources>

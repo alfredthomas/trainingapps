@@ -3,5 +3,5 @@
 
     <string name="app_name">SSCHUUAC2pt5</string>
     <string name="hello_world">Hello world!</string>
-
+	<string name="description">Scrollable list of gauges</string>
 </resources>

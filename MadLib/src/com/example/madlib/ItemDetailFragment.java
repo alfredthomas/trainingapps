@@ -59,7 +59,7 @@ public class ItemDetailFragment extends Fragment {
             Bundle savedInstanceState) {
     	context = container.getContext();
     	WrapPanel wrap = new WrapPanel(context);
-    	int height = 0;
+    	//int height = 0;
         RelativeLayout.LayoutParams lp = (android.widget.RelativeLayout.LayoutParams) new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         for(UIElement e:items)
         {

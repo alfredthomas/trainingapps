@@ -1,24 +1,11 @@
 package com.example.madlib;
 
 
-import java.util.ArrayList;
-
-import com.example.madlib.xml.UIElement;
-import com.example.madlib.xml.Utils;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.Spinner;
-import android.widget.TextView;
 
 
 /**

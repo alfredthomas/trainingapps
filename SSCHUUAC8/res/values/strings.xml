@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SSCHUUAC8</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="description">sample browser that launches other apps</string>
+</resources>

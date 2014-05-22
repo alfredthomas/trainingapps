@@ -3,5 +3,5 @@
 
     <string name="app_name">SSCHUUAC3</string>
     <string name="hello_world">Hello world!</string>
-
+	<string name="description">Wrap panel view with different sized objects</string>
 </resources>
