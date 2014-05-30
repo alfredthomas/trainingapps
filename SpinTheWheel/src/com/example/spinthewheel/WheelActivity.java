@@ -1,6 +1,12 @@
 package com.example.spinthewheel;
 
+import android.R.anim;
+import android.animation.Animator;
+import android.animation.Animator.AnimatorListener;
+import android.animation.AnimatorSet;
+import android.animation.FloatEvaluator;
 import android.animation.ObjectAnimator;
+import android.animation.TimeInterpolator;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,8 +14,11 @@ import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
-
 import android.view.View.OnTouchListener;
+import android.view.animation.AnimationSet;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,50 +47,86 @@ public class WheelActivity extends Activity {
 
         
     }
-    private static final int SWIPE_MIN_DISTANCE = 120;
-    private static final int SWIPE_THRESHOLD_VELOCITY = 200;
+//    private static final int SWIPE_MIN_DISTANCE = 120;
+//    private static final int SWIPE_THRESHOLD_VELOCITY = 200;
 
     private class GestureListener extends SimpleOnGestureListener {
         int currNum = 0;
+        int prevNum = 0;
+        
         int[] values = new int[]{600,100,200,300,400,500,300,200,100,400,300,400,100,700,-2,100,300,200,-1,100,500,400,300,200};
-    	
+    	int panelAngle = (360/values.length);
     	@Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        	ObjectAnimator spin;
-//        	if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-//                Log.d("wheel_fling", " right to left Vx = "+velocityX+" Vy = "+velocityY);
-//            	spin = new ObjectAnimator().ofFloat(findViewById(R.id.wheel), ImageView.ROTATION, 0f, Math.max(velocityX, velocityY));
-//            	spin.setDuration((long)(Math.abs(Math.max(velocityX, velocityY))%360));
-//            	spin.start();
-//                return false; // Right to left
-//            }  else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-//            	Log.d("wheel_fling", " left to right Vx = "+velocityX+" Vy = "+velocityY);
-//            	return false; // Left to right
-//            }
-//
-//            if(e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
-//            	Log.d("wheel_fling", " bottom to top Vx = "+velocityX+" Vy = "+velocityY);
-//            	return false; // Bottom to top
-//            }  else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
-//            	Log.d("wheel_fling", " top to bottom Vx = "+velocityX+" Vy = "+velocityY);
-//                return false; // Top to bottom
-//            }
-        	float maxVelocity =Math.abs(velocityX) > Math.abs(velocityX)? velocityX:velocityY;
-//        	float maxVelocity =velocityX* velocityY;
-        	float maxTime = (Math.abs(maxVelocity)/360)*100;
-        	int spinDiff = (int) ((maxVelocity%360)/(360/values.length));
-        	spinDiff =maxVelocity>=0? spinDiff:-1*spinDiff; 
-        	if(currNum+spinDiff<0)
-        		currNum = values.length-1 - Math.abs(currNum+spinDiff);
-        	else if(currNum+spinDiff>=values.length)
-        		currNum = (currNum+spinDiff)%values.length;
+    		
+        	float maxVelocity =velocityY/8;
+        	
+        	int completePanels = (int)(maxVelocity/panelAngle);
+        	int dir = e1.getY()< e2.getY()? 1:-1;
+        	
+        	int delta = completePanels % values.length;
+
+        	      		
+        	//wrap around 0
+        	if(currNum+delta<0)
+        		currNum = values.length + currNum+delta;
+        	//wrap around 1
+        	else if(currNum+delta>=values.length)
+        		currNum = (currNum+delta)-values.length;
         	else
-        		currNum = currNum + spinDiff;
-        	Log.d("wheel_fling", " Max Velocity = "+maxVelocity+" Spin Time = "+maxTime+" Value = "+currNum);
+        		currNum = currNum + delta;
+        	
+        	int completeSpins = (int) Math.abs(Math.floor(completePanels/values.length));
+        	int remainingPanels = Math.abs(completePanels%values.length);
+        	
+        	Log.d("wheel_fling", " currNum = "+currNum+" prevNum = "+prevNum+" Complete Spins = "+completeSpins+" Remaining Panels = "+remainingPanels+" Value = "+values[currNum]);
+        	
         	((TextView)findViewById(R.id.values)).setText(""+values[currNum]); 
-        	spin = new ObjectAnimator().ofFloat(findViewById(R.id.wheel), ImageView.ROTATION, 0f,maxVelocity );
-        	spin.setDuration((long)maxTime);
-        	spin.start();
+        	
+        	int prevAngle = prevNum*panelAngle;
+        	
+        	ImageView wheel = (ImageView) findViewById(R.id.wheel);
+        	ObjectAnimator fullSpin = null;
+        	if(completeSpins>0){	
+//        		fullSpin=  new ObjectAnimator().ofFloat(wheel, "rotation", prevAngle, dir * (prevAngle+360));
+        		fullSpin=  new ObjectAnimator().ofFloat(wheel, "rotation", prevAngle, prevAngle+(dir * 360));
+    		    fullSpin.setInterpolator(new DecelerateInterpolator());
+        		fullSpin.setDuration((long)1600);
+        		fullSpin.setRepeatCount(completeSpins);
+	        	fullSpin.start();
+        		
+        	}
+        	
+        	ObjectAnimator partialSpin =null;
+        	if(remainingPanels>0){
+        	 partialSpin= new ObjectAnimator().ofFloat(wheel, "rotation", prevAngle, (dir *panelAngle)+prevAngle);
+	        	partialSpin.setDuration((long)300);
+	        	partialSpin.setRepeatCount(remainingPanels);
+	        	PieAnimatorListener pieListener = new PieAnimatorListener();
+	        	pieListener.dir = dir;
+	        	partialSpin.addListener(pieListener);
+//	        	spin.start();
+        	}
+	        	AnimatorSet set = new AnimatorSet();
+	            
+	        	if (fullSpin!=null && partialSpin !=null)
+	        		set.play(fullSpin).before(partialSpin);
+	        	else if (fullSpin==null && partialSpin!=null)
+	        	{
+	        		set.play(partialSpin);
+	        	}
+	        	else if (fullSpin!=null && partialSpin==null)
+	        	{
+	        		set.play(fullSpin);
+	        	}
+	        	else{
+	        		//do nothing
+	        	}
+	            
+	            if (set.getChildAnimations() != null)
+	            set.start();
+        
+	        	prevNum = currNum;
             return true;
         }
     }
