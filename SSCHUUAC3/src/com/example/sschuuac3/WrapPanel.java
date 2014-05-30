@@ -150,10 +150,6 @@ public class WrapPanel extends ViewGroup{
 	
 	//
 	public static class LayoutParams extends MarginLayoutParams {
-        /**
-         * The gravity to apply with the View to which these layout parameters
-         * are associated.
-         */
         
 		public int left;
 		public int right;
