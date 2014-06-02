@@ -3,5 +3,15 @@
 
     <string name="app_name">ShakeThePiggyBank</string>
     <string name="hello_world">Hello world!</string>
+    <string name="Score">score</string>
+    <string name="PointValue">pointvalue</string>
+    <string-array name="Upgrades">
+        <item value="2">Two Per</item>
+        <item value="3">Three Per</item>
+        <item value="4">Four Per</item>
+        <item value="5">Five Per</item>
+
+        
+    </string-array>
 
 </resources>

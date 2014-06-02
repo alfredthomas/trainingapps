@@ -70,7 +70,7 @@ public class ShrinkView extends ViewGroup{
     }
 	
 	//
-	public static class LayoutParams extends MarginLayoutParams {
+	public static class LayoutParams extends ViewGroup.LayoutParams {
         
 		public int left;
 		public int right;
