@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
     @Override
@@ -18,6 +19,7 @@ public class MainActivity extends Activity {
         
         for(int i= 0; i<data.length; i++)
         {
+        	
         	data[i] = new TestDataItem();
         	wrapPanel.addView(Gauge.NewGauge(this, data[i]));
         	wrapPanel.addView(new Rectangle().Draw(this));

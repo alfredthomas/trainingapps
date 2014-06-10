@@ -40,15 +40,15 @@ public class ShakeSensorListener implements SensorEventListener {
 	}
 
 	Context context = null;
-	private static final int SHAKE_THRESHOLD = 600;
+	private static final int SHAKE_THRESHOLD = 400;
 	@Override
 	public void onSensorChanged(SensorEvent event) {
 		// TODO Auto-generated method stub
 		Sensor sensor = event.sensor;
 		if (sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
 		    long curTime = System.currentTimeMillis();
-		    // only allow one update every 200ms.
-		    if ((curTime - lastUpdate) > 200) {
+		    // only allow one update every 300ms.
+		    if ((curTime - lastUpdate) > 300) {
 		      long diffTime = (curTime - lastUpdate);
 		      lastUpdate = curTime;
 		      float[] values = event.values;

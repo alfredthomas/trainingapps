@@ -1,0 +1,50 @@
+start_test_server_in_background
+performAction('swipe','down')
+performAction('swipe','up')
+performAction('swipe','right')
+performAction('swipe','right')
+performAction('swipe','left')
+query('*')
+query('LinearLayout').child
+query('LinearLayout')
+query('LinearLayout child ImageView')
+query('LinearLayout child ImageView').performAction('swipe','right')
+query('LinearLayout child ImageView').swipe('right')
+query('LinearLayout child ImageView')
+touch(ImageView id='wheel')
+touch("ImageView id='wheel'")
+peformAction('swipe','left','wheel')
+performAction('swipe','left','wheel')
+performAction('swipe','right','wheel')
+exit
+reinstall_apps
+reinstall_test_server
+exit
+start_test_server_in_background
+touch('wheel')
+query('wheel')
+query("id:'wheel'")
+query("ImageView id:'wheel'")
+touch("ImageView id:'wheel'")
+swipe("ImageView id:'wheel'",'right')
+exit
+start_test_server_in_background
+start_test_server_in_background
+reinstall_test_server
+reinstall_test_server
+exit
+reinstall_apps
+exit
+reinstall_apps
+reinstall_test_server
+start_test_server_in_background
+performAction('scroll_down')
+performAction('scroll_down')
+performAction('scroll_down')
+performAction('scroll_down')
+query('*')
+query('ListView')
+query('DataChartView')
+pinch('DataChartView')
+performAction('pinch')
+exit

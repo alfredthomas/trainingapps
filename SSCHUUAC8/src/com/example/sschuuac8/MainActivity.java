@@ -41,6 +41,7 @@ public class MainActivity extends Activity {
         		text.setText(desc);
         		Button button = new Button(this);
         		button.setText(title);
+        		
         		button.setOnClickListener(new OnClickListener()  {
 					@Override
 					public void onClick(View v) {
