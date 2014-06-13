@@ -1,0 +1,34 @@
+
+ <olga.kerApps.myfirstapp.CustomLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res/olga.kerApps.myfirstapp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <!-- put first view to left. -->
+    <View            
+            android:id="@+id/mysquare1"
+            android:layout_width="100dip"
+            android:layout_height="100dip"
+            app:layout_position="left"            
+            android:background="@color/translucent_red"/>
+    
+    <View            
+            android:id="@+id/mysquare2"
+            android:layout_width="200dip"
+            android:layout_height="300dip"
+            app:layout_position="left"            
+            android:background="@color/opaque_red"/>
+    
+    <View            
+            android:id="@+id/mysquare3"
+            android:layout_width="200dip"
+            android:layout_height="300dip"
+            app:layout_position="left"            
+            android:background="@color/green"/>
+    
+    
+
+</olga.kerApps.myfirstapp.CustomLayout>

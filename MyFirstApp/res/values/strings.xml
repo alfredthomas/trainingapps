@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">My First App</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="edit_message">enter your name</string>
+    <string name="button_send">click me</string>
+    <string name="title_activity_display_message">My Message</string>
+    <string name="action_search">search</string>
+    <string name="preference_file_key">olga.kerApps.myfirstapp.valFile</string>
+    <string name="title_activity_trial">TrialActivity</string>
+    <string name="button_goToTrialActivity">Vertical Scroll Custom</string>
+    <string name="button_horizontalScrollCust">Horizontal Scroll Custom</string>
+    <string name="button_fixedWHCust">Fixed W+H Custom</string>
+    <string name="title_activity_horizontal_scroll_cust">HorizontalScrollCust</string>
+    <string name="title_activity_resizable">ResizableActivity</string>
+    <string name="button_resiableActivity">Go to ResizableActivity</string>
+    <string name="title_activity_us_map">UsMapActivity</string>
+    <string name="title_activity_weight_convt_web_serice">WeightConvtWebSericeActivity</string>
+    <string name="title_activity_google_drive">GoogleDriveActivity</string>
+    <string name="title_activity_google_drive_custom">GoogleDriveCustomActivity</string>
+
+</resources>

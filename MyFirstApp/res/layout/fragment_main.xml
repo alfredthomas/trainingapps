@@ -1,0 +1,88 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="olga.kerApps.myfirstapp.MainActivity$PlaceholderFragment" >
+
+    <EditText android:id="@+id/edit_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_message" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_send"
+        android:onClick="sendMessage" />
+
+    <Button
+        android:id="@+id/trialActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_goToTrialActivity"
+        android:textStyle="italic"
+        android:onClick="changeToTrialActivity" />
+    
+    <Button
+        android:id="@+id/horizontalScrollCust"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_horizontalScrollCust"
+        android:textStyle="italic"
+        android:onClick="changeToHorizontalScrollCust" />
+    
+     <Button
+        android:id="@+id/resiableActivityBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_resiableActivity"        
+        android:onClick="changeToResizableActivity" />
+     
+     <Button
+        android:id="@+id/usMapActivityBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Display US Map"        
+        android:onClick="changeToUsMapActivity" />
+     
+      <Button
+        android:id="@+id/webSevriceActBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Web Service"        
+        android:onClick="changeToWebServiceActivity" />
+      
+      <Button
+        android:id="@+id/reportPlusGetPermisionBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R+ GetPermission"        
+        android:onClick="reportPlusGetPermisionBtnOnClick" />
+      
+      <Button
+        android:id="@+id/googleDriveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Google Drive"        
+        android:onClick="changeToGoogleDriveActivity" />
+      
+       <Button
+        android:id="@+id/googleDriveCustomBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Google Drive Custom"        
+        android:onClick="changeToGoogleDriveCustomActivity" />
+       
+       <Button
+        android:id="@+id/rPlusProTestBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R+ Pro Web Service Test"        
+        android:onClick="reportPlusProRepositoryCommunication" />
+
+</LinearLayout>

@@ -1,0 +1,78 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/weightConvtMainContainter"
+  android:fillViewport="true"
+  android:background="#FFFFFF"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent" >
+   
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    <TextView
+        android:paddingTop="20px"
+        android:id="@+id/weightLbl"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="weight:"
+         />
+    <EditText
+        android:id="@+id/weightTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"        
+        android:inputType="numberDecimal"
+         >    
+    </EditText>
+    
+     <TextView
+        android:paddingTop="20px"
+        android:id="@+id/fromLbl"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="from units:"
+         />
+	<Spinner	    
+        android:id="@+id/fromUnitsSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+	
+	<TextView
+        android:paddingTop="20px"
+        android:id="@+id/toLbl"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="to units:"
+         />
+	<Spinner
+        android:id="@+id/toUnitsSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+	 
+    <Button
+        android:paddingTop="10px"
+        android:id="@+id/GetServerData"
+        android:text="Perform Conversion"
+        android:cursorVisible="true"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_gravity="center_horizontal"
+    />
+
+    
+    
+    <TextView
+        android:paddingTop="20px"
+        android:id="@+id/webserviceResponse"
+        android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+         />
+    
+ 
+</LinearLayout>
+</ScrollView>
