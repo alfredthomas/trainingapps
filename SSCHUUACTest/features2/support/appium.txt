@@ -1,0 +1,8 @@
+[caps]
+platformName = "Android"
+appActivity = "MainActivity"
+appPackage = "com.example.sschuuac2"
+
+[appium_lib]
+sauce_username = false
+sauce_access_key = false

@@ -1,11 +1,3 @@
-reinstall_apps
-reinstall_test_server
-start_test_server_in_background
-start_test_server_in_background
-start_test_server_in_background
-start_test_server_in_background
-exit
-start_test_server_in_background
 exit
 start_test_server_in_background
 start_test_server_in_background
@@ -47,4 +39,12 @@ start_test_server_in_background
 exit
 start_test_server_in_background
 start_test_server_in_background
+exit
+start_test_server_in_background
+performAction('scroll_down')
+performAction('list_actions')
+swipe(100,200)
+performAction('swipe')
+exit
+exit
 exit
