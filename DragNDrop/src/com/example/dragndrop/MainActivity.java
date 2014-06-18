@@ -21,7 +21,7 @@ int total , failure = 0;
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
         drag = (Button)findViewById(R.id.one);
-        drop = (LinearLayout)findViewById(R.id.bottomlinear);
+        drop = (LinearLayout)findViewById(R.id.toplinear);
         text = (TextView)findViewById(R.id.Total);
         sucess = (TextView)findViewById(R.id.Sucess);
         drop.setOnDragListener(new View.OnDragListener() {
