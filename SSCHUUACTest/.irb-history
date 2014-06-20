@@ -1,42 +1,3 @@
-exit
-start_test_server_in_background
-start_test_server_in_background
-query('*')
-query("Button")
-query("Button")[0]['rect']
-query("Button")[0]['rect']['center_y']
-y = query("Button")[0]['rect']['center_y']
-x = query("Button")[0]['rect']['center_x']
-query('*')
-query("TextView")
-query("TextView")[0]
-query("TextView")[0]['rect']
-dy = query("TextView")[0]['rect']['center_y']
-dx = query("TextView")[0]['rect']['center_x']
-performAction('drag',x,dx,y,dy,5)
-performAction('drag',x,dx,y,dy,1000)
-performAction('drag',,dx,y,dy,1000)
-performAction('drag',100,dx,y,dy,1000)
-exit
-start_test_server_in_background
-reinstall_apps
-reinstall_test_server
-start_test_server_in_background
-start_test_server_in_background
-start_test_server_in_background
-exit
-start_test_server_in_background
-start_test_server_in_background
-exit
-reinstall_apps
-start_test_server_in_background
-exit
-start_test_server_in_background
-reinstall_test_server
-reinstall_apps
-start_test_server_in_background
-start_test_server_in_background
-exit
 start_test_server_in_background
 start_test_server_in_background
 exit
@@ -47,4 +8,43 @@ swipe(100,200)
 performAction('swipe')
 exit
 exit
+exit
+start_test_server_in_background
+reinstall_
+reinstall_apps
+reinstall_test_server
+start_test_server_in_background
+query('*')
+touch("TextView text:'5.'")
+query("TextView")
+query("TextView text:'canvas'")
+query("TextView text:'4. Image Squares'")
+touch("TextView text:'5. Fixed'")
+touch("TextView text:'5. Fixed Point Zoom'")
+pinch()
+pinch('in')
+performAction('pinch','in')
+performAction('list_actions')
+performAction('list_actions')
+performAction('zoom_in')
+exit
+start_test_server_in_background
+exit
+start_test_server_in_background
+start_test_server_in_background
+exit
+start_test_server_in_background
+reinstall_apps
+reinstall_test_server
+exit
+start_test_server_in_background
+start_test_server_in_background
+start_test_server_in_background
+exit
+start_test_server_in_background
+start_test_server_in_background
+exit
+start_test_server_in_background
+performAction('rotate_phone',0)
+performAction('list_actions')
 exit

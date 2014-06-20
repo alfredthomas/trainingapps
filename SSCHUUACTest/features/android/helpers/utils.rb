@@ -1,4 +1,4 @@
-module SharePlusTests
+module SSCHUUACTest
   module AndroidHelpers
     def enter_text(uiquery, text)
       query(uiquery, {:setText => text})
@@ -6,4 +6,4 @@ module SharePlusTests
   end
 end
 
-World(SharePlusTests::AndroidHelpers)
+World(SSCHUUACTest::AndroidHelpers)

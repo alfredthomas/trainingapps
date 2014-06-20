@@ -1,10 +1,8 @@
 require 'calabash-android/abase'
 
 class UpgradeScreen < Calabash::ABase
-  include SSCHUUACTests::AndroidHelpers 
-  def trait
-    "ListView id:'upgrade_list'"
-  end
+  include SSCHUUACTest::AndroidHelpers 
+
 
 
 # PRE: List does not have pagination.
