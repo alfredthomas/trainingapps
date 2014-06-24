@@ -24,6 +24,8 @@ int total , failure = 0;
         drop = (LinearLayout)findViewById(R.id.toplinear);
         text = (TextView)findViewById(R.id.Total);
         sucess = (TextView)findViewById(R.id.Sucess);
+        sucess.setText("Sucessful Drops :"+(total - failure));
+        text.setText("Total Drops: "+total);
         drop.setOnDragListener(new View.OnDragListener() {
       @Override
       public boolean onDrag(View v, DragEvent event) {

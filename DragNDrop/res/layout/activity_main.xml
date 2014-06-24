@@ -9,7 +9,7 @@
 <LinearLayout
     android:id="@+id/toplinear"
     android:layout_width="match_parent"
-    android:layout_height="350dp"
+    android:layout_height="450dp"
     android:gravity="center"
     android:background="#00ff00"
     android:orientation="vertical" >
@@ -23,7 +23,7 @@
 <LinearLayout
     android:id="@+id/bottomlinear"
     android:layout_width="match_parent"
-    android:layout_height="350dp"
+    android:layout_height="450dp"
     android:gravity="center"
     android:background="#00ffff"
     android:orientation="vertical" >
